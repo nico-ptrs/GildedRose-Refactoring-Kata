@@ -1,14 +1,13 @@
 package com.gildedrose;
 
+import com.gildedrose.predicate.IsSulfurasPredicate;
 import com.gildedrose.sellin.DefaultSellInCalculator;
 import com.gildedrose.sellin.SulfurasSellInCalculator;
-import com.gildedrose.predicate.IsSulfurasPredicate;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
 class GildedRoseSellInCalculatorTest {
