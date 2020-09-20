@@ -1,6 +1,5 @@
 package com.gildedrose;
 
-import com.gildedrose.predicate.IsSulfurasPredicate;
 import com.gildedrose.sellin.DefaultSellInCalculator;
 import com.gildedrose.sellin.SulfurasSellInCalculator;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,15 +15,13 @@ class GildedRoseSellInCalculatorTest {
 
     private DefaultSellInCalculator defaultUpdateSellInCalculator;
     private SulfurasSellInCalculator sulfurasUpdateSellInCalculator;
-    private IsSulfurasPredicate isSulfurasPredicate;
 
     @BeforeEach
     void setUp() {
-        isSulfurasPredicate = mock(IsSulfurasPredicate.class);
         defaultUpdateSellInCalculator = mock(DefaultSellInCalculator.class);
         sulfurasUpdateSellInCalculator = mock(SulfurasSellInCalculator.class);
 
-        sellInUpdater = new GildedRoseSellInCalculator(defaultUpdateSellInCalculator, isSulfurasPredicate, sulfurasUpdateSellInCalculator);
+        sellInUpdater = new GildedRoseSellInCalculator(defaultUpdateSellInCalculator, sulfurasUpdateSellInCalculator);
     }
 
     @Test
@@ -32,7 +29,7 @@ class GildedRoseSellInCalculatorTest {
         final Item item = mock(Item.class);
         final int expected = 23;
 
-        when(isSulfurasPredicate.test(item)).thenReturn(false);
+        when(sulfurasUpdateSellInCalculator.appliesTo(item)).thenReturn(false);
         when(defaultUpdateSellInCalculator.calculate(item)).thenReturn(expected);
 
         final int result = sellInUpdater.calculate(item);
@@ -45,7 +42,7 @@ class GildedRoseSellInCalculatorTest {
         final Item item = mock(Item.class);
         final int expected = 26;
 
-        when(isSulfurasPredicate.test(item)).thenReturn(true);
+        when(sulfurasUpdateSellInCalculator.appliesTo(item)).thenReturn(true);
         when(sulfurasUpdateSellInCalculator.calculate(item)).thenReturn(expected);
 
         final int result = sellInUpdater.calculate(item);

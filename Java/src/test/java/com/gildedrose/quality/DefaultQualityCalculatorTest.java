@@ -1,11 +1,11 @@
 package com.gildedrose.quality;
 
 import com.gildedrose.Item;
-import com.gildedrose.quality.DefaultQualityCalculator;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
 
 class DefaultQualityCalculatorTest {
 
@@ -14,6 +14,12 @@ class DefaultQualityCalculatorTest {
     @BeforeEach
     void setUp() {
         defaultUpdateQualityCalculator = new DefaultQualityCalculator();
+    }
+
+    @Test
+    void appliesTo() {
+        final Item item = mock(Item.class);
+        assertThat(defaultUpdateQualityCalculator.appliesTo(item)).isTrue();
     }
 
     @Test

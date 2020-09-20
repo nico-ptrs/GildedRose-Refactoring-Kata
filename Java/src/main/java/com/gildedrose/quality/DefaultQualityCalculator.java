@@ -4,6 +4,10 @@ import com.gildedrose.Item;
 
 public class DefaultQualityCalculator extends AbstractQualityCalculator {
 
+    public DefaultQualityCalculator() {
+        super(item -> true);
+    }
+
     @Override
     protected int calculateQuality(final Item item) {
         if (isExpired(item)) {

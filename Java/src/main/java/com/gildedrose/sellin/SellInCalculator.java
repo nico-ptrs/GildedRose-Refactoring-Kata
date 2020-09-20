@@ -1,8 +1,6 @@
 package com.gildedrose.sellin;
 
-import com.gildedrose.Item;
+import com.gildedrose.ItemCalculator;
 
-public interface SellInCalculator {
-
-    int calculate(Item item);
+public interface SellInCalculator extends ItemCalculator {
 }

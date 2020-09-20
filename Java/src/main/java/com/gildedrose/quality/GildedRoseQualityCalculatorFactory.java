@@ -10,13 +10,9 @@ public class GildedRoseQualityCalculatorFactory {
 
     public GildedRoseQualityCalculator create() {
         return new GildedRoseQualityCalculator(new DefaultQualityCalculator(),
-                                               new IsAgedBriePredicate(),
-                                               new AgedBrieQualityCalculator(),
-                                               new IsBackstagePassesPredicate(),
-                                               new BackstagePassesQualityCalculator(),
-                                               new IsConjuredPredicate(),
-                                               new ConjuredQualityCalculator(),
-                                               new IsSulfurasPredicate(),
-                                               new SulfurasQualityCalculator());
+                                               new AgedBrieQualityCalculator(new IsAgedBriePredicate()),
+                                               new BackstagePassesQualityCalculator(new IsBackstagePassesPredicate()),
+                                               new ConjuredQualityCalculator(new IsConjuredPredicate()),
+                                               new SulfurasQualityCalculator(new IsSulfurasPredicate()));
     }
 }

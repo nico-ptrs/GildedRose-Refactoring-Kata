@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.mockito.Mockito.mock;
 
 class DefaultSellInCalculatorTest {
 
@@ -13,6 +14,12 @@ class DefaultSellInCalculatorTest {
     @BeforeEach
     void setUp() {
         defaultUpdateSellInCalculator = new DefaultSellInCalculator();
+    }
+
+    @Test
+    void appliesTo() {
+        final Item item = mock(Item.class);
+        assertThat(defaultUpdateSellInCalculator.appliesTo(item)).isTrue();
     }
 
     @Test

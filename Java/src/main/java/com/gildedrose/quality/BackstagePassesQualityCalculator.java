@@ -2,7 +2,13 @@ package com.gildedrose.quality;
 
 import com.gildedrose.Item;
 
+import java.util.function.Predicate;
+
 public class BackstagePassesQualityCalculator extends AbstractQualityCalculator {
+
+    public BackstagePassesQualityCalculator(final Predicate<Item> isBackstagePassesPredicate) {
+        super(isBackstagePassesPredicate);
+    }
 
     @Override
     protected int calculateQuality(final Item item) {

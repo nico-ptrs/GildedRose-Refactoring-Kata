@@ -6,6 +6,6 @@ import com.gildedrose.predicate.IsSulfurasPredicate;
 public class GildedRoseSellInCalculatorFactory {
 
     public GildedRoseSellInCalculator create() {
-        return new GildedRoseSellInCalculator(new DefaultSellInCalculator(), new IsSulfurasPredicate(), new SulfurasSellInCalculator());
+        return new GildedRoseSellInCalculator(new DefaultSellInCalculator(), new SulfurasSellInCalculator(new IsSulfurasPredicate()));
     }
 }

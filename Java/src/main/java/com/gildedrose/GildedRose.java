@@ -15,7 +15,6 @@ public class GildedRose {
         sellInCalculator = gildedRoseSellInCalculatorFactory.create();
         qualityCalculator = qualityCalculatorFactory.create();
         this.items = items;
-
     }
 
     public void updateQuality() {

@@ -1,8 +1,6 @@
 package com.gildedrose.quality;
 
-import com.gildedrose.Item;
+import com.gildedrose.ItemCalculator;
 
-public interface QualityCalculator {
-
-    int calculate(Item item);
+public interface QualityCalculator extends ItemCalculator {
 }
